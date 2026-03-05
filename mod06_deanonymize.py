@@ -18,7 +18,8 @@ def link_records(anon_df, aux_df):
       anon_id, matched_name
     containing ONLY uniquely matched records.
     """
-    raise NotImplementedError
+    return pd.merge(anon_df, aux_df, on=['age', 'zip3', 'gender'], how='right')
+    # raise NotImplementedError
 
 
 def deanonymization_rate(matches_df, anon_df):
@@ -27,3 +28,10 @@ def deanonymization_rate(matches_df, anon_df):
     that were uniquely re-identified.
     """
     raise NotImplementedError
+
+# anon, aux = load_data("mod06_data/anonymized.csv", "mod06_data/auxiliary.csv")
+# print(link_records(anon, aux))
+
+# print(anon.shape)
+# print(aux.shape)
+# print(link_records(anon, aux).shape)
